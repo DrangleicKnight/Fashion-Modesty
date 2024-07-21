@@ -1,0 +1,51 @@
+MDScreen:
+    name : "admin"
+
+    canvas.before:
+        Color:
+            rgba : 1, 1, 1, 1
+        Rectangle:
+            size : self.size
+            pos : self.pos
+            source : "images/purp.jpg"
+
+    MDIconButton:
+        icon : "arrow-left-bold"
+        theme_text_color : "Custom"
+        user_font_size : "30sp"
+        text_color : "white"
+        pos_hint : {"center_x" : .1, "center_y" : .92}
+        on_press : root.manager.current = "login"
+
+    MDLabel:
+        text : "Back"
+        font_size : "25sp"
+        theme_text_color : "Custom"
+        text_color : 1, 1, 1, 1
+        font_name : "fonts/Poppins-SemiBold.ttf"
+        halign : "center"
+        pos_hint : {"center_x" : .21, "center_y" : .922}
+
+    MDLabel:
+        text : "Admin"
+        font_size : "30sp"
+        theme_text_color : "Custom"
+        text_color : 1, 1, 1, 1
+        font_name : "fonts/Poppins-SemiBold.ttf"
+        halign : "center"
+        pos_hint : {"center_x" : .8, "center_y" : .922}
+
+    MDFillRoundFlatButton:
+        text : "Add Products"
+        size_hint : .4, .1
+        pos_hint : {"center_x" : .5, "center_y" : .7}
+        on_press : root.manager.current = "products"
+    MDFillRoundFlatButton:
+        text : "Records"
+        size_hint : .4, .1
+        pos_hint : {"center_x" : .5, "center_y" : .55}
+        on_press : root.manager.current = "records"
+    MDFillRoundFlatButton:
+        text : "Manage Users"
+        size_hint : .4, .1
+        pos_hint : {"center_x" : .5, "center_y" : .4}

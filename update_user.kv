@@ -1,0 +1,104 @@
+#: import fetch_user update_user.fetch_user
+#: import delete_user update_user.delete_user
+#: import update_user update_user.update_user
+
+MDScreen:
+    name : "update_user"
+    md_bg_color : 202/255, 150/255, 92/255, .6
+
+    canvas.before:
+        Color:
+            rgba : 1, 1, 1, .6
+        Rectangle:
+            size : self.size
+            pos : self.pos
+            source : "images/6.jpg"
+
+    MDIconButton:
+        icon : "arrow-left-bold"
+        icon_size : "40sp"
+        pos_hint : {"center_x" : .08, "center_y" : .93}
+        on_release:
+            root.manager.current = "admin"
+    MDLabel:
+        text : "Back"
+        font_size : "20sp"
+        font_name : "fonts/Poppins-Bold.ttf"
+        pos_hint : {"center_x" : .65, "center_y" : .93}
+
+    MDLabel:
+        text: "Update User"
+        bold: True
+        pos_hint: {"center_x" : 1.15, "center_y" : .935}
+        font_size : "25sp"
+
+    MDCard:
+        size_hint : .9, .85
+        pos_hint : {"center_x" : .5, "center_y" : .46}
+        md_bg_color : 0, 0, 0, .4
+
+        MDFloatLayout:
+            MDLabel:
+                id : account_name
+                text : "User's Account"
+                font_size : "25sp"
+                halign : "center"
+                font_name : "fonts/Poppins-Bold.ttf"
+                pos_hint : {"center_x" : .5, "center_y" : .92}
+
+            MDTextField:
+                id : email
+                hint_text : "E-Mail"
+                mode : "rectangle"
+                pos_hint : {"center_x" : .4, "center_y" : .82}
+                size_hint : .6, .1
+                font_size : "12sp"
+            MDIconButton:
+                icon : "magnify"
+                icon_size : "30dp"
+                pos_hint : {"center_x" : .8, "center_y" : .82}
+                on_press : fetch_user(account_name, email, first_name, last_name, contact, address)
+            MDTextField:
+                id : first_name
+                hint_text : "First Name"
+                mode : "rectangle"
+                pos_hint : {"center_x" : .5, "center_y" : .7}
+                size_hint : .8, .1
+                font_size : "12sp"
+            MDTextField:
+                id : last_name
+                text : "21"
+                mode : "rectangle"
+                pos_hint : {"center_x" : .5, "center_y" : .58}
+                size_hint : .8, .1
+                font_size : "12sp"
+            MDTextField:
+                id : contact
+                hint_text : "Contact"
+                mode : "rectangle"
+                pos_hint : {"center_x" : .5, "center_y" : .46}
+                size_hint : .8, .1
+                font_size : "12sp"
+            MDTextField:
+                id : address
+                hint_text : "Address"
+                multiline : True
+                mode : "rectangle"
+                pos_hint : {"center_x" : .5, "center_y" : .34}
+                size_hint : .8, .1
+                font_size : "12sp"
+            MDRaisedButton:
+                text : "Update Profile"
+                size_hint : .8, .08
+                pos_hint : {"center_x" : .5, "center_y" : .2}
+                md_bg_color : 1, .3, .4, .85
+                on_press : update_user(email, first_name, last_name, contact, address)
+            MDRaisedButton:
+                text : "Delete Profile"
+                size_hint : .8, .08
+                pos_hint : {"center_x" : .5, "center_y" : .1}
+                md_bg_color : 1, .3, .4, .85
+                on_press : delete_user(email, first_name, last_name, contact, address)
+
+
+

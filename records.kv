@@ -1,0 +1,62 @@
+#: import user_table records.user_table
+#: import hijab_table records.hijab_table
+#: import abaya_table records.abaya_table
+
+MDScreen:
+    name : "records"
+
+    canvas:
+        Color :
+            rgba : (1, 1, 1, 1)
+        Rectangle:
+            size : self.size
+            pos : self.pos
+            source : "images/purp.jpg"
+
+    MDIconButton:
+        icon : "arrow-left-bold"
+        icon_size : "40sp"
+        pos_hint : {"center_x" : .08, "center_y" : .93}
+        on_release:
+            root.manager.current = "admin"
+    MDLabel:
+        text : "Back"
+        font_size : "20sp"
+        font_name : "fonts/Poppins-Bold.ttf"
+        pos_hint : {"center_x" : .65, "center_y" : .93}
+        theme_text_color : "Custom"
+        text_color : "white"
+
+    MDLabel:
+        text: "Admin Dashboard"
+        bold: True
+        pos_hint: {"center_x" : 1.03, "center_y" : .935}
+        font_size : "25sp"
+        theme_text_color : "Custom"
+        text_color : "white"
+
+    MDCard:
+        id : card
+        size_hint : .92, .75
+        pos_hint : {"center_x" : .5, "center_y" : .52}
+        Carousel:
+            id : carousel
+            MDFloatLayout:
+                id : layout
+            MDFloatLayout:
+                id : layout2
+            MDFloatLayout:
+                id : layout3
+
+    MDRaisedButton:
+        text : "User Records"
+        pos_hint : {"center_x" : .2, "center_y" : .08}
+        on_press : carousel.load_slide(layout)
+    MDRaisedButton:
+        text : "Hijab Records"
+        pos_hint : {"center_x" : .5, "center_y" : .08}
+        on_press : carousel.load_slide(layout2)
+    MDRaisedButton:
+        text : "Abaya Records"
+        pos_hint : {"center_x" : .8, "center_y" : .08}
+        on_press : carousel.load_slide(layout3)

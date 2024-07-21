@@ -1,0 +1,49 @@
+MDScreen:
+    name : "order_placed"
+    md_bg_color : 202/255, 150/255, 92/255, .7
+
+    canvas.before:
+        Color:
+            rgba : 1, 1, 1, .4
+        Rectangle:
+            size : self.size
+            pos : self.pos
+            source : "images/6.jpg"
+
+    MDLabel:
+        text : "F&M Clothing"
+        font_size : "40sp"
+        font_name : "fonts/Poppins-Bold.ttf"
+        halign : "center"
+        pos_hint : {"center_x" : .33, "center_y" : .85}
+
+    MDLabel:
+        text : "The best of both Fashion and Modesty"
+        font_size : "15sp"
+        font_name : "fonts/Poppins-SemiBold.ttf"
+        pos_hint : {"center_x" : .56, "center_y" : .8}
+
+    MDLabel:
+        text : "Your Order has been placed!"
+        font_size : "25sp"
+        theme_text_color : "Custom"
+        text_color : 0, 0, 0, 1
+        font_name : "fonts/Poppins-SemiBold.ttf"
+        halign : "center"
+        pos_hint : {"center_x" : .5, "center_y" : .6}
+
+    MDLabel:
+        text : "Thank you for purchasing from F&M Clothing! \nYour product will arrive to you in a few days!"
+        font_size : "15sp"
+        font_name : "fonts/Poppins-SemiBold.ttf"
+        halign : "center"
+        size_hint_x : .7
+        pos_hint : {"center_x" : .5, "center_y" : .5}
+
+    MDRoundFlatButton:
+        md_bg_color : 0, 0, 0, .5
+        text : "Back to HomePage"
+        size_hint : .35, .1
+        pos_hint : {"center_x" : .5, "center_y" : .35}
+        radius : [20]
+        on_press : root.manager.current = "homepage"

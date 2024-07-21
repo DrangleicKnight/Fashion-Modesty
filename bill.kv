@@ -1,0 +1,155 @@
+#: import generate_bill confirm_order.generate_bill
+#: import send_mail confirm_order.send_mail
+#: import take_screen confirm_order.take_screen
+
+MDScreen:
+    name : "bill"
+    md_bg_color : 1, 1, 1, 1
+
+    ScrollView:
+        id : scroll
+        do_scroll_x : False
+        do_scroll_y : True
+        size : self.size
+        MDFloatLayout:
+            id : float
+            size_hint : 1, None
+            height : scroll.height * 1.05
+            MDLabel:
+                id : info
+                text : "Trubber's Stash \nNIMB, Kohinoor Reina, Kondhwa \nPune - 411048 \n8830802322"
+                font_name : "fonts/Poppins-SemiBold.ttf"
+                font_size : "15sp"
+                pos_hint : {"center_x" : .55, "center_y" : .9}
+                theme_text_color : "Custom"
+                text_color : 0, 0, 0, 1
+
+            MDLabel:
+                id : bill_no
+                text : "Bill No : 3424234234"
+                font_name : "fonts/Poppins-Bold.ttf"
+                font_size : "25sp"
+                halign : "center"
+                pos_hint : {"center_x" : .5, "center_y" : .8}
+                theme_text_color : "Custom"
+                text_color : 0, 0, 0, 1
+
+            MDLabel:
+                id : date
+                text : "Date : 24-12-2000"
+                font_name : "fonts/Poppins-Regular.ttf"
+                font_size : "15sp"
+                pos_hint : {"center_x" : .55, "center_y" : .75}
+                theme_text_color : "Custom"
+                text_color : 0, 0, 0, 1
+
+            MDLabel:
+                id : time
+                text : "Time : 3:38pm"
+                font_name : "fonts/Poppins-Regular.ttf"
+                font_size : "15sp"
+                halign : "center"
+                pos_hint : {"center_x" : .8, "center_y" : .75}
+                theme_text_color : "Custom"
+                text_color : 0, 0, 0, 1
+
+            MDLabel:
+                text : "Items"
+                font_name : "fonts/Poppins-Bold.ttf"
+                font_size : "28sp"
+                halign : "center"
+                pos_hint : {"center_x" : .5, "center_y" : .69}
+                theme_text_color : "Custom"
+                text_color : 0, 0, 0, 1
+
+            MDLabel:
+                text : "--------------------------------------------------------------------------"
+                font_name : "fonts/Poppins-Bold.ttf"
+                font_size : "15sp"
+                halign : "center"
+                pos_hint : {"center_x" : .5, "center_y" : .65}
+                theme_text_color : "Custom"
+                text_color : 0, 0, 0, 1
+
+            GridLayout:
+                id : grid
+                cols : 1
+                pos_hint : {"center_x" : .5, "center_y" : .14}
+                size_hint : 1, 1
+                MDList:
+                    id : list
+                    md_bg_color : 0, 0, 0, 1
+
+            GridLayout:
+                size_hint : 1, 0.4
+                cols : 1
+                pos_hint : {"center_x" : .5, "center_y" : .24}
+                MDLabel:
+                    text : "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
+                    font_name : "fonts/Poppins-Bold.ttf"
+                    font_size : "15sp"
+                    halign : "center"
+                    theme_text_color : "Custom"
+                    text_color : 0, 0, 0, 1
+
+                GridLayout:
+                    cols : 2
+                    rows : 1
+                    size_hint : 1, .01
+
+                    MDLabel:
+                        size_hint : 1, .01
+                        text : "Mode of Payment : Cash"
+                        font_size : "15sp"
+                        font_name : "fonts/Poppins-SemiBold.ttf"
+                        halign : "center"
+                        theme_text_color : "Custom"
+                        text_color : 0, 0, 0, 1
+                    MDLabel:
+                        id : price
+                        size_hint : 1, .01
+                        text : "Total : 5499Rs"
+                        font_size : "20sp"
+                        font_name : "fonts/Poppins-Bold.ttf"
+                        halign : "center"
+                        theme_text_color : "Custom"
+                        text_color : 0, 0, 0, 1
+
+                MDLabel:
+                    text : "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
+                    font_name : "fonts/Poppins-Bold.ttf"
+                    font_size : "20sp"
+                    halign : "center"
+                    theme_text_color : "Custom"
+                    text_color : 0, 0, 0, 1
+
+                MDLabel:
+                    text : "Trubber's Stash declares that this invoice shows the actual price of the goods described and that all the items are valid\n\nTerms - No Refund after 7 days \nNo Exchange without Invoice"
+                    font_name : "fonts/Poppins-Regular.ttf"
+                    font_size : "14sp"
+                    padding : [10, 0]
+                    theme_text_color : "Custom"
+                    text_color : 0, 0, 0, 1
+
+                MDLabel:
+                    text : "Software Developed by : TrubberDox"
+                    font_name : "fonts/Poppins-SemiBold.ttf"
+                    font_size : "15sp"
+                    halign : "center"
+                    theme_text_color : "Custom"
+                    text_color : 0, 0, 0, 1
+
+
+            MDRaisedButton:
+                id : btn
+                text : "Confirm"
+                size_hint : .1, .08
+                pos_hint : {"center_x" : .9, "center_y" : .9}
+                on_press :
+                    float.remove_widget(btn)
+                    take_screen(bill_no)
+                    root.manager.current = "done"
+                    send_mail(bill_no)
+
+
+

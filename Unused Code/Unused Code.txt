@@ -1,0 +1,37 @@
+This code was used for the creation of a product's card:
+
+                            MDCard:
+                                size_hint : None, None
+                                size : (470, 130)
+                                radius : [30]
+                                pos_hint : {"center_x" : .5, "center_y" : .87}
+                                MDFloatLayout
+                                    FitImage:
+                                        size_hint : None, None
+                                        size : (105, 105)
+                                        radius : [20]
+                                        pos_hint : {"center_x" : .13, "center_y" : .5}
+                                        source : "images/hijab1.jpg"
+                                    MDLabel:
+                                        text : "Chiffon Hijab"
+                                        font_size : "18sp"
+                                        font_name : "fonts/Poppins-SemiBold.ttf"
+                                        halign : "center"
+                                        pos_hint : {"center_x" : .4, "center_y" : .8}
+                                    MDLabel:
+                                        text : "One of the best-selling hijabs \nfrom our site, the material is premium"
+                                        font_size : "12sp"
+                                        font_name : "fonts/Poppins-SemiBold.ttf"
+                                        theme_text_color : "Custom"
+                                        text_color : 0, 0, 0, .8
+                                        pos_hint : {"center_x" : .78, "center_y" : .5}
+                                    MDLabel:
+                                        text : "Price : 2999 Rs/-"
+                                        font_size : "15sp"
+                                        font_name : "fonts/Poppins-SemiBold.ttf"
+                                        pos_hint : {"center_x" : .78, "center_y" : .22}
+                                    MDLabel:
+                                        text : "x5"
+                                        font_size : "20sp"
+                                        font_name : "fonts/Poppins-Bold.ttf"
+                                        pos_hint : {"center_x" : 1.4, "center_y" : .5}

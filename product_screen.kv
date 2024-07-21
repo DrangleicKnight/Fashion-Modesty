@@ -1,0 +1,106 @@
+#: import show_toast popups.show_toast
+#: import add_to_cart product.add_to_cart
+#: import add_to_bill product.add_to_bill
+
+MDScreen:
+    name : "product_screen"
+    md_bg_color : 202/255, 150/255, 92/255, .7
+
+    canvas.before:
+        Color:
+            rgba : 1, 1, 1, .4
+        Rectangle:
+            size : self.size
+            pos : self.pos
+            source : "images/6.jpg"
+
+    MDIconButton:
+        icon : "arrow-left-bold"
+        theme_text_color : "Custom"
+        user_font_size : "30sp"
+        text_color : "white"
+        pos_hint : {"center_x" : .1, "center_y" : .92}
+        theme_text_color : "Custom"
+        text_color : 0, 0, 0, 1
+        on_press : root.manager.current = "homepage"
+
+    MDLabel:
+        text : "Back"
+        font_size : "25sp"
+        theme_text_color : "Custom"
+        text_color : 1, 1, 1, 1
+        font_name : "fonts/Poppins-SemiBold.ttf"
+        theme_text_color : "Custom"
+        text_color : 0, 0, 0, 1
+        halign : "center"
+        pos_hint : {"center_x" : .21, "center_y" : .922}
+
+    MDLabel:
+        text : "Product Details"
+        font_size : "25sp"
+        theme_text_color : "Custom"
+        text_color : 0, 0, 0, 1
+        font_name : "fonts/Poppins-SemiBold.ttf"
+        halign : "center"
+        pos_hint : {"center_x" : .75, "center_y" : .922}
+
+    MDCard:
+        size_hint : .7, .4
+        pos_hint : {"center_x" : .5, "center_y" : .65}
+        radius : [30]
+
+        FitImage:
+            id : image
+            pos : self.pos
+            size : self.pos
+            source : "images/1.jpg"
+            radius : [30]
+
+    MDCard:
+        size_hint : .55, .07
+        pos_hint : {"center_x" : .5, "center_y" : .8}
+        radius : [25]
+        md_bg_color : 1, 1, 1, .3
+
+        MDLabel:
+            id : name
+            text : "Chiffon Hijab"
+            halign : "center"
+            font_size : "25sp"
+            font_name : "fonts/Poppins-Bold.ttf"
+
+    MDLabel:
+        id : desc
+        text : "The product is really great you need to try it like its"
+        font_name : "fonts/Poppins-SemiBold.ttf"
+        font_size : "20sp"
+        halign : "center"
+        size_hint_x : .7
+        pos_hint : {"center_x" : .5, "center_y" : .34}
+
+    MDLabel:
+        text : "Price -"
+        font_name : "fonts/Poppins-SemiBold.ttf"
+        font_size : "25sp"
+        halign : "center"
+        size_hint_x : .7
+        pos_hint : {"center_x" : .38, "center_y" : .25}
+
+    MDLabel:
+        id : price
+        text : "3000Rs/-"
+        font_name : "fonts/Poppins-SemiBold.ttf"
+        font_size : "25sp"
+        halign : "center"
+        size_hint_x : .7
+        pos_hint : {"center_x" : .6, "center_y" : .25}
+
+    MDFillRoundFlatButton:
+        md_bg_color : 48/255, 30/255, 103/255, .8
+        text : "Add to Cart"
+        size_hint : .6, .08
+        pos_hint : {"center_x" : .5, "center_y" : .15}
+        on_press :
+            show_toast()
+            add_to_cart(app, name, price, image)
+            add_to_bill(app, name, price)

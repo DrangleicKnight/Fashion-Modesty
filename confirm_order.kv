@@ -1,0 +1,152 @@
+#: import generate_bill confirm_order.generate_bill
+
+MDScreen:
+    name : "confirm_order"
+    md_bg_color : 202/255, 150/255, 92/255, .7
+
+    canvas.before:
+        Color:
+            rgba : 1, 1, 1, .4
+        Rectangle:
+            size : self.size
+            pos : self.pos
+            source : "images/6.jpg"
+
+    MDIconButton:
+        icon : "arrow-left-bold"
+        theme_text_color : "Custom"
+        user_font_size : "30sp"
+        text_color : "white"
+        pos_hint : {"center_x" : .1, "center_y" : .92}
+        theme_text_color : "Custom"
+        text_color : "black"
+        on_press : root.manager.current = "cart"
+
+    MDLabel:
+        text : "Back"
+        font_size : "25sp"
+        theme_text_color : "Custom"
+        text_color : "white"
+        font_name : "fonts/Poppins-SemiBold.ttf"
+        theme_text_color : "Custom"
+        text_color : "black"
+        halign : "center"
+        pos_hint : {"center_x" : .21, "center_y" : .922}
+
+    MDLabel:
+        text : "Order Confirmation"
+        font_size : "25sp"
+        theme_text_color : "Custom"
+        text_color : "black"
+        font_name : "fonts/Poppins-SemiBold.ttf"
+        halign : "center"
+        pos_hint : {"center_x" : .7, "center_y" : .922}
+
+    MDCard:
+        md_bg_color : 0, 0, 0, .3
+        size_hint : .9, .52
+        pos_hint : {"center_x" : .5, "center_y" : .58}
+        radius : [30]
+        MDFloatLayout:
+            MDLabel:
+                text : "Name"
+                font_size : "20sp"
+                halign : "center"
+                font_name : "fonts/Poppins-SemiBold.ttf"
+                pos_hint : {"center_x" : .25, "center_y" : .8}
+            MDTextField:
+                id : name
+                mode : "rectangle"
+                size_hint : .3, .16
+                hint_text : "Name"
+                theme_text_color : "Custom"
+                text_color : "black"
+                pos_hint : {"center_x" : .65, "center_y" : .8}
+
+            MDLabel:
+                text : "E-Mail"
+                font_size : "20sp"
+                halign : "center"
+                font_name : "fonts/Poppins-SemiBold.ttf"
+                pos_hint : {"center_x" : .25, "center_y" : .65}
+            MDTextField:
+                id : email
+                mode : "rectangle"
+                size_hint : .3, .16
+                hint_text : "E-Mail"
+                text_color : "black"
+                pos_hint : {"center_x" : .65, "center_y" : .63}
+
+            MDLabel:
+                text : "Contact"
+                font_size : "20sp"
+                halign : "center"
+                font_name : "fonts/Poppins-SemiBold.ttf"
+                pos_hint : {"center_x" : .25, "center_y" : .5}
+            MDTextField:
+                id : contact
+                mode : "rectangle"
+                hint_text : "Contact"
+                size_hint : .3, .16
+                text_color : "black"
+                pos_hint : {"center_x" : .65, "center_y" : .46}
+
+            MDLabel:
+                text : "Address"
+                font_size : "20sp"
+                halign : "center"
+                font_name : "fonts/Poppins-SemiBold.ttf"
+                pos_hint : {"center_x" : .25, "center_y" : .35}
+            MDTextField:
+                id : address
+                mode : "rectangle"
+                size_hint : .3, .27
+                hint_text : "Address"
+                multiline : True
+                text_color : "black"
+                pos_hint : {"center_x" : .65, "center_y" : .24}
+
+    MDLabel:
+        text : "Payment Method"
+        font_size : "20sp"
+        font_name : "fonts/Poppins-SemiBold.ttf"
+        pos_hint : {"center_x" : .57, "center_y" : .25}
+    MDCheckbox:
+        size_hint : .05, .05
+        pos_hint : {"center_x" : .09, "center_y" : .15}
+        theme_text_color: "Custom"
+        text_color : "white"
+    MDLabel:
+        text : "Cash on Delivery"
+        font_size : "15sp"
+        font_name : "fonts/Poppins-SemiBold.ttf"
+        pos_hint : {"center_x" : .63, "center_y" : .15}
+    MDCheckbox:
+        size_hint : .05, .05
+        pos_hint : {"center_x" : .09, "center_y" : .1}
+        theme_text_color: "Custom"
+        text_color : "white"
+    MDLabel:
+        text : "UPI Payment"
+        font_size : "15sp"
+        font_name : "fonts/Poppins-SemiBold.ttf"
+        pos_hint : {"center_x" : .63, "center_y" : .1}
+
+    MDLabel:
+        id : price
+        text : "Your total : 7500Rs"
+        font_size : "22sp"
+        font_name : "fonts/Poppins-Bold.ttf"
+        pos_hint : {"center_x" : 1.04, "center_y" : .25}
+    MDRaisedButton:
+        md_bg_color : 0, 0, 0, .8
+        text : "Place Order"
+        size_hint : .3, .08
+        pos_hint : {"center_x" : .75, "center_y" : .14}
+        theme_text_color : "Custom"
+        text_color : "white"
+        on_press :
+            generate_bill(app, name, address, contact, email, price)
+            root.manager.current = "bill"
+
+

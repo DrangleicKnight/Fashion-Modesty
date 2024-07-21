@@ -1,0 +1,223 @@
+#:import next1 register.next1
+#:import prev register.prev
+#:import submit register.submit
+#: import insert register.insert
+
+MDScreen:
+    name : "main"
+
+    canvas.before:
+        Color:
+            rgba : 1, 1, 1, 1
+        Rectangle:
+            size : self.size
+            pos : self.pos
+            source : "images/purp.jpg"
+
+    MDIconButton:
+        icon : "arrow-left-bold"
+        theme_text_color : "Custom"
+        user_font_size : "30sp"
+        text_color : "white"
+        pos_hint : {"center_x" : .12, "center_y" : .92}
+        on_press : root.manager.current = "login"
+
+    MDLabel:
+        text : "Back"
+        font_size : "25sp"
+        theme_text_color : "Custom"
+        text_color : "white"
+        font_name : "fonts/Poppins-SemiBold.ttf"
+        halign : "center"
+        pos_hint : {"center_x" : .23, "center_y" : .922}
+
+    MDLabel:
+        text : "Register"
+        font_size : "30sp"
+        theme_text_color : "Custom"
+        text_color : "white"
+        font_name : "fonts/Poppins-SemiBold.ttf"
+        halign : "center"
+        pos_hint : {"center_x" : .8, "center_y" : .922}
+
+
+    MDCard:
+        size_hint : .9, .8
+        pos_hint : {"center_x" : .5, "center_y" : .45}
+        radius : [40]
+        md_bg_color : 202/255, 150/255, 92/255, .7
+
+        canvas.before:
+            Color:
+                rgba : 1, 1, 1, .4
+            Rectangle:
+                size : self.size
+                pos : self.pos
+                source : "images/6.jpg"
+
+        Carousel:
+            id : caroused
+            MDFloatLayout:
+                MDLabel:
+                    text : "First Name"
+                    font_size : "20sp"
+                    font_name : "fonts/Poppins-SemiBold.ttf"
+                    halign : "center"
+                    pos_hint : {"center_x" : .3, "center_y" : .65}
+                MDTextField:
+                    id : f_name
+                    mode : "rectangle"
+                    size_hint : .4, .1
+                    pos_hint : {"center_x" : .66, "center_y" : .65}
+                    font_size : "15sp"
+                    theme_text_color : "Custom"
+                    line_color_focus : "black"
+                    hint_text_color_focus : "black"
+                    text_color_focus : "black"
+
+                MDLabel:
+                    text : "Last Name"
+                    font_size : "20sp"
+                    font_name : "fonts/Poppins-SemiBold.ttf"
+                    halign : "center"
+                    pos_hint : {"center_x" : .3, "center_y" : .5}
+                MDTextField:
+                    id : l_name
+                    mode : "rectangle"
+                    size_hint : .4, .11
+                    pos_hint : {"center_x" : .66, "center_y" : .5}
+                    font_size : "15sp"
+                    theme_text_color : "Custom"
+                    line_color_focus : "black"
+                    hint_text_color_focus : "black"
+                    text_color_focus : "black"
+
+                MDLabel:
+                    text : "Contact No."
+                    font_size : "20sp"
+                    font_name : "fonts/Poppins-SemiBold.ttf"
+                    halign : "center"
+                    pos_hint : {"center_x" : .3, "center_y" : .35}
+                MDTextField:
+                    id : contact
+                    mode : "rectangle"
+                    size_hint : .4, .11
+                    pos_hint : {"center_x" : .66, "center_y" : .35}
+                    font_size : "15sp"
+                    theme_text_color : "Custom"
+                    line_color_focus : "black"
+                    hint_text_color_focus : "black"
+                    text_color_focus : "black"
+                MDFillRoundFlatButton:
+                    text : "Next"
+                    size_hint : .3, .1
+                    pos_hint : {"center_x" : .5, "center_y" : .15}
+                    md_bg_color : 0, 0, 0, .7
+                    on_press : next1(app)
+
+            MDFloatLayout:
+                MDLabel:
+                    text : "E-Mail"
+                    font_size : "20sp"
+                    font_name : "fonts/Poppins-SemiBold.ttf"
+                    halign : "center"
+                    pos_hint : {"center_x" : .3, "center_y" : .65}
+                MDTextField:
+                    id : email
+                    mode : "rectangle"
+                    size_hint : .4, .11
+                    pos_hint : {"center_x" : .66, "center_y" : .65}
+                    font_size : "15sp"
+                    theme_text_color : "Custom"
+                    line_color_focus : "black"
+                    hint_text_color_focus : "black"
+                    text_color_focus : "black"
+
+                MDLabel:
+                    text : "Password"
+                    font_size : "20sp"
+                    font_name : "fonts/Poppins-SemiBold.ttf"
+                    halign : "center"
+                    pos_hint : {"center_x" : .3, "center_y" : .5}
+                MDTextField:
+                    id : password
+                    mode : "rectangle"
+                    size_hint : .4, .11
+                    pos_hint : {"center_x" : .66, "center_y" : .5}
+                    font_size : "15sp"
+                    theme_text_color : "Custom"
+                    line_color_focus : "black"
+                    hint_text_color_focus : "black"
+                    text_color_focus : "black"
+                    password : True
+
+                MDLabel:
+                    text : "Address"
+                    font_size : "20sp"
+                    font_name : "fonts/Poppins-SemiBold.ttf"
+                    halign : "center"
+                    pos_hint : {"center_x" : .3, "center_y" : .36}
+                MDTextField:
+                    id : address
+                    mode : "rectangle"
+                    size_hint : .4, .15
+                    pos_hint : {"center_x" : .66, "center_y" : .32}
+                    font_size : "15sp"
+                    theme_text_color : "Custom"
+                    line_color_focus : "black"
+                    hint_text_color_focus : "black"
+                    text_color_focus : "black"
+                MDFillRoundFlatButton:
+                    text : "Previous"
+                    size_hint : .3, .1
+                    pos_hint : {"center_x" : .3, "center_y" : .15}
+                    md_bg_color : 0, 0, 0, .7
+                    on_press : prev(app)
+                MDFillRoundFlatButton:
+                    text : "Submit"
+                    size_hint : .3, .1
+                    pos_hint : {"center_x" : .7, "center_y" : .15}
+                    md_bg_color : 0, 0, 0, .7
+                    on_press :
+                        submit(app)
+                        insert(f_name, l_name, contact, email, password, address)
+
+
+            MDFloatLayout:
+                MDLabel:
+                    text : "Thank you for Registering! \nYou can now Login and proceed to browse \nthrough our huge collection of Hijabs and Abayas!"
+                    font_size : "16sp"
+                    halign : "center"
+                    pos_hint : {"center_x" : .5, "center_y" : .6}
+                    font_name : "fonts/Poppins-SemiBold.ttf"
+                MDFillRoundFlatButton:
+                    text : "Back to Login"
+                    size_hint : .4, .12
+                    pos_hint : {"center_x" : .5, "center_y" : .4}
+                    md_bg_color : 0, 0, 0, .7
+                    on_press : root.manager.current = "login"
+
+    MDFloatLayout:
+        MDLabel:
+            text : "Welcome! Please register if you haven't created an account"
+            font_size : "12sp"
+            font_name : "fonts/Poppins-SemiBold.ttf"
+            halign : "center"
+            pos_hint : {"center_x" : .5, "center_y" : .78}
+
+        MDIconButton:
+            id: circle1
+            icon : "numeric-1-circle"
+            pos_hint: {"center_x" : .4, "center_y" : .7}
+            user_font_size : "50sp"
+
+        MDIconButton:
+            id: circle2
+            icon : "numeric-2-circle"
+            pos_hint: {"center_x" : .6, "center_y" : .7}
+            user_font_size : "50sp"
+
+        MDProgressBar:
+            id: progress
+            size_hint: .15, .01
+            pos_hint: {"center_x" : .501, "center_y" : .7}

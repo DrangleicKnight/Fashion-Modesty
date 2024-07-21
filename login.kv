@@ -1,0 +1,118 @@
+MDScreen:
+    name : "login"
+    md_bg_color : 202/255, 150/255, 92/255, .6
+
+    canvas.before:
+        Color:
+            rgba : 1, 1, 1, .6
+        Rectangle:
+            size : self.size
+            pos : self.pos
+            source : "images/6.jpg"
+
+    MDFloatLayout:
+        FitImage:
+            size_hint : .2, .17
+            radius : [50]
+            pos_hint : {"center_x" : .85, "center_y" : .9}
+            source : "images/logo.png"
+
+        MDLabel:
+            text : "Login"
+            pos_hint : {"center_x" : .2, "center_y" : .91}
+            font_size : "35sp"
+            halign : "center"
+            font_name : "fonts/Poppins-Bold.ttf"
+            theme_text_color : "Custom"
+            text_color_normal : "black"
+
+        MDLabel:
+            text : "Welcome to F&M Store"
+            pos_hint : {"center_x" : .52, "center_y" : .75}
+            font_size : "25sp"
+            halign : "center"
+            font_name : "fonts/Poppins-Bold.ttf"
+            theme_text_color : "Custom"
+            text_color_normal : "black"
+        MDLabel:
+            text : "The perfect blend of Fashion and Modesty!"
+            pos_hint : {"center_x" : .52, "center_y" : .69}
+            font_size : "15sp"
+            halign : "center"
+            font_name : "fonts/Poppins-SemiBold.ttf"
+            theme_text_color : "Custom"
+            text_color_normal : "black"
+
+        MDLabel:
+            text : "E-Mail"
+            font_size : "20sp"
+            halign : "center"
+            pos_hint : {"center_x" : .27, "center_y" : .6}
+            font_name : "fonts/Poppins-SemiBold.ttf"
+            theme_text_color : "Custom"
+            text_color_normal : "black"
+        MDTextField:
+            id : email
+            mode : "rectangle"
+            size_hint : .35, .09
+            theme_text_color : "Custom"
+            line_color_focus : "black"
+            hint_text_color_focus : "black"
+            text_color_focus : "black"
+            font_size : "15sp"
+            font_name : "fonts/Poppins-SemiBold.ttf"
+            hint_text : "E-mail"
+            pos_hint : {"center_x" : .65, "center_y" : .6}
+
+        MDLabel:
+            text : "Password"
+            font_size : "20sp"
+            halign : "center"
+            pos_hint : {"center_x" : .3, "center_y" : .45}
+            font_name : "fonts/Poppins-SemiBold.ttf"
+            theme_text_color : "Custom"
+            text_color_normal : "black"
+        MDTextField:
+            id : password
+            mode : "rectangle"
+            size_hint : .35, .09
+            theme_text_color : "Custom"
+            line_color_focus : "black"
+            hint_text_color_focus : "black"
+            text_color_focus : "black"
+            font_size : "15sp"
+            font_name : "fonts/Poppins-SemiBold.ttf"
+            hint_text : "Password"
+            pos_hint : {"center_x" : .65, "center_y" : .45}
+            password : True
+
+        MDFillRoundFlatButton:
+            text : "Login"
+            font_size : "15sp"
+            size_hint : .5, .08
+            font_name : "fonts/Poppins-SemiBold.ttf"
+            md_bg_color : 0, 0, 0, .75
+            theme_text_color : "Custom"
+            text_color : "white"
+            pos_hint : {"center_x" : .5, "center_y" : .3}
+            on_press : app.fetch_data(email, password)
+
+        MDTextButton:
+            text : "Don't have an account? Register"
+            font_size : "15sp"
+            font_name : "fonts/Poppins-SemiBold.ttf"
+            halign : "center"
+            pos_hint : {"center_x" : .5, "center_y" : .2}
+            theme_text_color : "Custom"
+            text_color_normal : "black"
+            on_press:
+                root.manager.current = "main"
+
+        MDTextButton:
+            text : "Login as Admin"
+            font_size : "15sp"
+            pos_hint : {"center_x" : .5, "center_y" : .15}
+            font_name : "fonts/Poppins-SemiBold.ttf"
+            theme_text_color : "Custom"
+            text_color : "black"
+            on_press: app.fetch_admin(email, password)
