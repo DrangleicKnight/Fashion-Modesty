@@ -5,19 +5,19 @@ The duration of the development of this project was only 2 weeks so it isn't, by
 ## Login Screen
 This is the first screen that pops up when you start the app.
 
-<pre><img src="images/Screens/1.PNG" width="400" height = "600"></pre>
+<img src="images/Screens/1.PNG" width="400" height = "600">
 
 ## HomePage
-![3](https://github.com/user-attachments/assets/9696a4bc-de92-43f4-b634-418e377e4967)
+<pre><img src="images/Screens/3.PNG" width="400" height = "600"></pre>
 
 ## Single Product
-![5](https://github.com/user-attachments/assets/fd4a4e6c-9368-4dad-b766-ee9f6cdeb25d)
+<pre><img src="images/Screens/5.PNG" width="400" height = "600"></pre>
 
 ## Cart
-![6](https://github.com/user-attachments/assets/f77f1cec-3892-4a27-8884-350b9db157fd)
+<pre><img src="images/Screens/6.PNG" width="400" height = "600"></pre>
 
 ## Bill
-![8](https://github.com/user-attachments/assets/910ec9a8-26b4-4d91-ab7e-6e49bbbfbb7b)
+<pre><img src="images/Screens/8.PNG" width="400" height = "600"></pre>
 
 ### Extra Details
 - This application has the ability to send bills over E-mail
