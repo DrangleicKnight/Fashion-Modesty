@@ -4,7 +4,7 @@ The duration of the development of this project was only 2 weeks so it isn't, by
 ### Modules
 ## Login Screen
 This is the first screen that pops up when you start the app.
-![1](https://github.com/user-attachments/assets/72ea80d6-d999-4edc-885f-8e2eb9a7e59d width="100" height="100")
+![1](https://github.com/user-attachments/assets/72ea80d6-d999-4edc-885f-8e2eb9a7e59d){:height="36px" width="36px"}.
 
 ## HomePage
 ![3](https://github.com/user-attachments/assets/9696a4bc-de92-43f4-b634-418e377e4967)
